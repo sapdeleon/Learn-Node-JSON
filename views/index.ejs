@@ -23,7 +23,14 @@
       <ul id="ingredientsList">
         <li><%= recipe.ingredients.protein.name %>, <%= recipe.ingredients.protein.preparation%></li>
         <li><%= recipe.ingredients.salsa.name %></li>
-        <li>Every other topping</li>
+        <li><h3>Toppings:</h3>
+          <% recipe.ingredients.toppings.forEach(toppings => { %>
+            <ul id="ingredientsList">
+              <li><%= toppings.name %>, <%= toppings.quantity %>, <%= toppings.ingredients %></li>
+            </ul>
+          <% }) %>
+          
+        </li>
       </ul>
     <% } else { %>
       <!-- Else, no recipe selected. -->
